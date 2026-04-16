@@ -1,0 +1,66 @@
+###############################################################################
+# Routes — apply AFTER claiming admin accounts via port-forward
+###############################################################################
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: minio-api
+spec:
+  host: minio-api-${PROJECT_NAME}.2.rahtiapp.fi
+  to:
+    kind: Service
+    name: minio
+  port:
+    targetPort: api
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: minio-console
+spec:
+  host: minio-console-${PROJECT_NAME}.2.rahtiapp.fi
+  to:
+    kind: Service
+    name: minio
+  port:
+    targetPort: console
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: n8n
+spec:
+  host: n8n-${PROJECT_NAME}.2.rahtiapp.fi
+  to:
+    kind: Service
+    name: n8n
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mattermost
+spec:
+  host: mattermost-${PROJECT_NAME}.2.rahtiapp.fi
+  to:
+    kind: Service
+    name: mattermost
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
