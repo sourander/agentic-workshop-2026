@@ -39,6 +39,7 @@ deploy:
 wait:
     oc rollout status deployment/mattermost-db --timeout=120s
     oc rollout status deployment/minio --timeout=120s
+    oc rollout status deployment/openai-nginx --timeout=120s
     oc rollout status deployment/n8n --timeout=120s
     oc rollout status deployment/mattermost --timeout=180s
 

@@ -1,6 +1,7 @@
 # Local secrets
 .workshop-secrets.env
 .secret
+.this-session-members.json
 
 # HTML
 site/

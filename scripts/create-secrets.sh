@@ -9,6 +9,8 @@ POSTGRES_DB="mattermost"
 SECRET_NAME="workshop-secrets"
 LOCAL_FILE=".workshop-secrets.env"
 
+OPENAI_API_KEY=${OPENAI_API_KEY:-}
+
 # ── Pre-flight checks ───────────────────────────────────────────────────────
 if ! command -v oc &>/dev/null; then
     echo "ERROR: 'oc' CLI not found. Install it first." >&2
@@ -17,6 +19,11 @@ fi
 
 if ! oc whoami &>/dev/null; then
     echo "ERROR: Not logged in to OpenShift. Run 'oc login' first." >&2
+    exit 1
+fi
+
+if [[ -z "$OPENAI_API_KEY" ]]; then
+    echo "WARNING: OPENAI_API_KEY is not set. Export an OpenAI API token before running this script." >&2
     exit 1
 fi
 
@@ -44,7 +51,8 @@ oc create secret generic "$SECRET_NAME" \
     --from-literal="POSTGRES_USER=${POSTGRES_USER}" \
     --from-literal="POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" \
     --from-literal="POSTGRES_DB=${POSTGRES_DB}" \
-    --from-literal="MM_SQLSETTINGS_DATASOURCE=${MM_SQLSETTINGS_DATASOURCE}"
+    --from-literal="MM_SQLSETTINGS_DATASOURCE=${MM_SQLSETTINGS_DATASOURCE}" \
+    --from-literal="OPENAI_API_KEY=${OPENAI_API_KEY}"
 
 # ── Save credentials locally ────────────────────────────────────────────────
 cat > "$LOCAL_FILE" <<EOF

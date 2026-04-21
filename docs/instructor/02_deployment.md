@@ -10,7 +10,7 @@ icon: lucide/rocket
 
 ## Before the workshop
 
-- Configm you have Open AI API token with sufficient quota for the workshop exercises. This will be shared with the participants.
+- Confirm you have an ==OpenAI API token== with sufficient quota for the workshop exercises. This will be shared with the participants through the internal proxy.
 - Confirm you have access to a CSC project with Rahti enabled.
 - Decide the project name you want to use, or keep the default `aika-agent-workshop`.
 - Build and push the custom Mattermost image before workshop day.
@@ -98,11 +98,22 @@ The deployment should stay internal until the first admin accounts are claimed.
 
 ### 1. Create the workshop secrets
 
+Export the OpenAI token first:
+
+``` bash
+export OPENAI_API_KEY=sk-...
+```
+
+Then create the workshop secrets:
+
 ``` bash
 just create-secrets
 ```
 
 This writes `.workshop-secrets.env`, which is git-ignored and should remain local. The matching secrets are added into the OpenShift project as Secrets.
+
+!!! warning
+    `just create-secrets` now refuses to continue if `OPENAI_API_KEY` is not exported in the local shell.
 
 ### 2. Deploy the services without public routes
 
@@ -219,6 +230,7 @@ The resulting schema looks like this:
 
 - Verify the public routes with `just status` before participants arrive.
 - Keep the admin credentials and invite links available in a private note.
+- Instruct participants to configure their n8n OpenAI credential with base URL `http://openai-proxy/v1` and any placeholder token value. The internal proxy replaces the Authorization header with the workshop token.
 - Share the n8n access details and participant credentials at the start of the session.
 
 ??? info "Suggested instructor handoff bundle"
