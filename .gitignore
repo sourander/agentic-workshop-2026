@@ -1,3 +1,6 @@
 # Local secrets
 .workshop-secrets.env
 .secret
+
+# HTML
+site/

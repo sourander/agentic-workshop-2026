@@ -333,6 +333,8 @@ spec:
               value: n8n,minio,mattermost-db
             - name: MM_TEAMSETTINGS_ENABLEOPENSERVER
               value: "false"
+            - name: MM_SERVICESETTINGS_ENABLEPOSTUSERNAMEOVERRIDE
+              value: "true"
           volumeMounts:
             - name: data
               mountPath: /mattermost/data
