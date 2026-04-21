@@ -1,0 +1,88 @@
+{
+  "name": "First Workfow Ever",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1c9e5c65-8d25-4ccb-9047-b7d4e18c64d7",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      current_time: new Date().toISOString()\n    }\n  }\n]"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "279339b0-b7ae-419f-9cb8-b11d89ddb211",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8fdecf8a-f361-4b38-b5ca-727567615629",
+              "name": "days_to_christmas_26",
+              "value": "={{ \n  DateTime.fromISO(\n    '2026-12-24'\n  ).diff(\n    DateTime.fromISO(\n      $json.current_time), \n      'days'\n  ).days\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "6605510b-e9c2-4a41-b32c-bce8694f5f43",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a551205a-3bc3-4557-a138-47f08c6d9452",
+  "meta": {
+    "instanceId": "dcbba504dba568007da71e4c9564627df588cf182ff3d477119f46c3bbfbac8e"
+  },
+  "id": "PiI7zadhtzLaxvbv",
+  "tags": []
+}
