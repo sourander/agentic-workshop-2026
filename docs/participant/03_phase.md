@@ -15,7 +15,11 @@ The goal of this Phase is to create a simple AI Agent workflow in n8n. The workf
 In the front page of n8n, you can see the Overview view, which shows all your workflows. Click the "New Workflow" button to create a new workflow.
 ///
 
-## Step 2: Create the OpenAI credential
+## Step X: Create the OpenAI credential
+
+!!! warning
+
+    This is work in progress. More steps and details will be added here.
 
 When n8n asks for an OpenAI credential, create a new one with these values:
 

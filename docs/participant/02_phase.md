@@ -238,10 +238,6 @@ You can also find thousands of workflow examples in the [n8n: Workflows](https:/
     }
     ```
 
-## Workflow JSON fallback
-
-[Placeholder: link to the starter workflow export, for example `assets/workflows/phase-2-starter.json`.]
-
 ## Success check
 
 If you can run the workflow and the last Node shows the days until Christmas Eve 2026, you have successfully completed this Phase! Congratulations on creating or importing your first n8n workflow!
@@ -254,3 +250,7 @@ If you cannot replicate the steps above, you can download the workflow JSON file
 2. In n8n, click the `...` menu in the top-right corner of the workflow editor and select `Import from File`.
 3. Select the downloaded JSON file and import it.
 4. Execute the workflow and check the output.
+
+!!! tip
+
+    Alternatively, you can copy the JSON content from the code block above and simply paste it using ++ctrl++v++ in the n8n Workflow editor.
