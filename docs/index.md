@@ -32,5 +32,5 @@ This site contains the workshop material for running and attending the n8n works
 
 !!! debug "If you are an instructor..."
 
-    Please refer to the [Instructor Guide](instructor-guide.md) for instructions on how to set up and run the workshop. You will need to have CSC credentials and some tech ninja skills.
+    Please refer to the [Instructor Guide](instructor/01_instructor.md) for instructions on how to set up and run the workshop. You will need to have CSC credentials and some tech ninja skills.
 
