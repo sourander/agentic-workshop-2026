@@ -1,5 +1,5 @@
 ---
-icon: lucide/users
+icon: lucide/log-in
 ---
 
 # Before You Start

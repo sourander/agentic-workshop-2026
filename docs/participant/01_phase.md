@@ -1,5 +1,5 @@
 ---
-icon: lucide/log-in
+icon: lucide/workflow
 ---
 
 # Phase 1: Create Credentials
