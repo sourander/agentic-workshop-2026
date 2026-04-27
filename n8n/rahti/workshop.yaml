@@ -80,10 +80,20 @@ data:
           proxy_set_header Authorization "Bearer ${OPENAI_API_KEY}";
           proxy_set_header Content-Type "application/json";
           proxy_set_header Host api.openai.com;
+          proxy_set_header Connection "";
+
+          proxy_http_version 1.1;
 
           proxy_ssl_server_name on;
           proxy_ssl_trusted_certificate /etc/pki/tls/certs/ca-bundle.crt;
           proxy_ssl_verify on;
+
+          proxy_connect_timeout 30s;
+          proxy_send_timeout 300s;
+          proxy_read_timeout 300s;
+          send_timeout 300s;
+
+          proxy_buffering off;
         }
       }
     }
@@ -447,6 +457,7 @@ spec:
               value: "false"
             - name: MM_SERVICESETTINGS_ENABLEPOSTUSERNAMEOVERRIDE
               value: "true"
+            - name: EnableOnlyAdminIntegrations
           volumeMounts:
             - name: data
               mountPath: /mattermost/data

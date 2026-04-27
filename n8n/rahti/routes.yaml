@@ -38,6 +38,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: n8n
+  annotations:
+    haproxy.router.openshift.io/timeout: 10m
 spec:
   host: n8n-${PROJECT_NAME}.2.rahtiapp.fi
   to:

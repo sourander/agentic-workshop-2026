@@ -83,7 +83,7 @@ def main() -> None:
     api_key = os.environ.get("N8N_API_KEY")
     base_url = os.environ.get("N8N_BASE_URL", "http://localhost:5678")
 
-    if not api_key:
+    if not api_key or api_key == 'fetch-from-n8n-ui-and-add-here':
         print("Error: N8N_API_KEY environment variable is required.")
         print(f"Set it in {DOTENV_FILE} or export it in your shell.")
         sys.exit(1)

@@ -244,13 +244,8 @@ If you can run the workflow and the last Node shows the days until Christmas Eve
 
 ## If you are stuck
 
-If you cannot replicate the steps above, you can download the workflow JSON file and import it into your n8n personal space. The url to the file is [gh:sourander/agentic-workshop-2026/workflow-examples/02-first-workflow-ever.json](https://github.com/sourander/agentic-workshop-2026/blob/main/workflow-examples/02-first-workflow-ever.json).
+If you cannot replicate the steps above, you can copy and paste the workflow JSON into your n8n workflow.
 
-1. Download the file from GitHub (*Download raw file* button)
-2. In n8n, click the `...` menu in the top-right corner of the workflow editor and select `Import from File`.
-3. Select the downloaded JSON file and import it.
-4. Execute the workflow and check the output.
-
-!!! tip
-
-    Alternatively, you can copy the JSON content from the code block above and simply paste it using ++ctrl++v++ in the n8n Workflow editor.
+1. Find the JSON above
+2. Click the tiny copy to clipboard button in the top-right corner of the code block
+3. Paste it using ++ctrl++v++ in the n8n Workflow editor.

@@ -39,19 +39,28 @@ The command appears in the Mattermost Town Square channel as a message. Note tha
 
 You can read more about this feature at Mattermost's [Incoming Webhooks documentation](https://developers.mattermost.com/integrate/webhooks/incoming/).
 
-## Mattermost incoming custom username forbidden
+!!! info
 
-To change the incoming username, the field is `username` instead of `user_name`, AND the following setting must be enabled from the [Mattermost System Console > Integrations > Integration Management](https://mattermost-aika-agent-workshop.2.rahtiapp.fi/admin_console/integrations/integration_management):
+    Now that you have created one, create another one with the same settings but with a Title ending in suffix `(prod)`.
 
-> Enable integrations to override usernames: True
-
-!!! tip "Fixed?"
-
-    This has potentially already been fixed with workshop.yaml file environment variable:
+    Copy these into your memo:
 
     ```
-        - name: MM_SERVICESETTINGS_ENABLEPOSTUSERNAMEOVERRIDE
-          value: "true"
+    MM-IN (test): https://mattermost-aika-agent-workshop.2.rahtiapp.fi/hooks/<webhook_id_test>
+    MM-IN (prod): https://mattermost-aika-agent-workshop.2.rahtiapp.fi/hooks/<webhook_id_prd>
     ```
 
-    This requires verification in a fresh deployment where the settings has not been changed manually.
+## Allow Users to Create Webhooks
+
+If it is intended that users will use the **Outgoing** webhooks, the System Console setting `EnableOnlyAdminIntegrations` must be disabled. Sadly, as of 2026, this no longer exists. This is stated in the [Mattermost 4.9.0](https://docs.mattermost.com/administration-guide/upgrade/important-upgrade-notes.html) upgrade notes. Thus, what need to be done, is:
+
+* Go to `System Console > User Management -> Permissions`
+* Click `Edit Scheme`.
+* Enable the following:
+
+* Manage Incoming Webhooks
+    * Manage Own
+* Manage Outgoing Webhooks
+    * Manage Own
+
+This will enable both in- and outgoing webhooks, so that users can practice during Workshop as they wish.

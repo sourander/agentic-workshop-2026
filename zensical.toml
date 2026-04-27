@@ -45,11 +45,24 @@ Copyright &copy; 2026 The authors
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Workshop Overview" = "index.md" },
-#   { "Instructor Guide" = "instructor-guide.md" },
-#   { "Participant Guide" = "participant-guide.md" },
-# ]
+nav = [
+    {"Home" = "index.md"},
+    {"Instructor" = [
+        "instructor/01_instructor.md",
+        "instructor/02_deployment.md",
+        "instructor/03_manual_steps.md"
+    ]},
+    {"2-hour Workshop" = [
+        "participant/00_before.md",
+        "participant/01_phase.md",
+        "participant/02_phase.md",
+        "participant/03_phase.md",
+        "participant/04_phase.md"
+    ]},
+    {"45-min Workshop" = [
+        "miniparticipant/00_before.md"
+    ]}
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
