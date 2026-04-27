@@ -12,7 +12,7 @@
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_name
 site_name = "Agentic Workshop 2026"
-repo_url = "https://github.com/sourander/csc-quick-guide"
+repo_url = "https://github.com/sourander/agentic-workshop-2026"
 
 # The site_description is included in the HTML head and should contain a
 # meaningful description of the site content for use by search engines.
