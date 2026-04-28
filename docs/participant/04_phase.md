@@ -76,9 +76,9 @@ Let's imagine a use case where some information arrives in a non-JSON format. It
 Below are two simple TXT files that you can use. You can also create your own TXT file if you want. Just make sure to keep it as unstructured TXT file. Files like Word (`.docx`) or PDF would require different handling, so we stick to simple TXT files for this workshop.
 
 * menu.txt
-    * ::material-file-link: download from [menu.txt](https://minio-console-aika-agent-workshop.2.rahtiapp.fi/b/fit-dassie/o/menu.txt)
+    * ::material-file-link: download from [menu.txt](https://github.com/sourander/agentic-workshop-2026/blob/main/shared-assets/menu.txt)
 * projects.txt
-    * :material-file-link: download from [projects.txt](https://minio-console-aika-agent-workshop.2.rahtiapp.fi/b/fit-dassie/o/projects.txt)
+    * :material-file-link: download from [projects.txt](https://github.com/sourander/agentic-workshop-2026/blob/main/shared-assets/projects.txt)
 
 !!! tip
 
@@ -169,12 +169,10 @@ Create a new workflow in n8n and name it something like `My Capstone Workflow`. 
 1. Add a Webhook node to the workflow.
 2. Change the HTTP Method to `POST`.
 
-Now, ==the second step this is important==. Change the HTTP Method to `POST`. Otherwise, the integration has no chance of working.
+Now, ==the second step this is important==. Change the HTTP Method to `POST`. Otherwise, the integration has no chance of working. Important peace of information here are the URLs. You will need the Test URL during this workshop. The production URL is something you would need in actual production use.
 
-Copy the URIs to your MEMO text file, as you will need them later. They look like...
-
-* Test URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/webhook-test/<uuid>`
-* Production URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/webhook/<uuid>`
+* ✅ Test URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/webhook-test/<uuid>`
+* 🚧 Prod URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/webhook/<uuid>`
 
 !!! warning
 
@@ -300,7 +298,7 @@ In the Node itself, set the...
 
 ### Second tool: Get File Content
 
-It would be great idea to add another S3 node that would Download the file. Sadly, the data is returned as a binary in `data` field, and the AI Agent does not know how to handle it. Thus, we will use a non-optimal workaround: we will performa typical HTTP GET request to the Minio URL of the file. This will return the content assuming that the file is public. And, the whole bucket has been made public by the instructor beforehand, so it should work.
+It would be great idea to add another S3 node that would Download the file. Sadly, the data is returned as a binary in `data` field, and the AI Agent does not know how to handle it. Thus, we will use a non-optimal workaround: we will perform a typical HTTP GET request to the Minio URL of the file. This will return the content assuming that the file is public. And, the whole bucket has been made public by the instructor beforehand, so it should work.
 
 1. Create a new HTTP Request node (as a Tool).
 2. Name it `Get file from Minio`.
@@ -309,7 +307,9 @@ It would be great idea to add another S3 node that would Download the file. Sadl
 
 Add a description to the URL field:
 
-> "The URI is in form: http://minio:9000/fit-dassie/<FILENAME>"
+```
+The URI is in form: http://minio:9000/fit-dassie/FILENAME
+```
 
 !!! warning
 
@@ -327,7 +327,7 @@ Now, if you execute it and add a direct path to the file, it should return a JSO
 
 Great!
 
-## Step 8: Add Model
+## Step 8: Add Model and Test
 
 Now would be a good time to test that a model can call the API endpoints. Remember that our current prompt is "This is a test message", so there is a good chance that model will read all files, but not find any revelant information. However, we will find that the model is able to call the API and read the content of the files. Do as before, and:
 
@@ -348,9 +348,9 @@ Finally, we want to post the answer back to Mattermost. For that, we will add a 
 
 ### Create the Incoming Webhook in Mattermost
 
-Title: `fit-dassie-in-test`
-Channel: `fit-dassie` (or your alias)
-Username: `fit-dassie-bot`
+* Title: `fit-dassie-in-test` (use your alias here!)
+* Channel: `fit-dassie` 
+* Username: `fit-dassie-bot`
 
 After the Incoming Webhook is created, copy the URL. It looks like this:
 
