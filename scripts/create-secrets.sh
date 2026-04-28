@@ -10,6 +10,7 @@ SECRET_NAME="workshop-secrets"
 LOCAL_FILE=".workshop-secrets.env"
 
 OPENAI_API_KEY=${OPENAI_API_KEY:-}
+PROJECT_NAME=${PROJECT_NAME:-aika-agent-workshop}
 
 # ── Pre-flight checks ───────────────────────────────────────────────────────
 if ! command -v oc &>/dev/null; then
@@ -40,8 +41,9 @@ POSTGRES_PASSWORD=$(openssl rand -base64 18 | tr -d '/+=')
 # Derived connection string
 MM_SQLSETTINGS_DATASOURCE="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@mattermost-db:5432/${POSTGRES_DB}?sslmode=disable&connect_timeout=10"
 
-# Placeholder for n8n URI (most probably OK) and API key (must be fetched from n8n UI after deployment)
-N8N_BASE_URL=https://n8n-${PROJECT_NAME:-aika-agent-workshop}.2.rahtiapp.fi
+# Public service URLs and placeholder API key (must be fetched from n8n UI after deployment)
+MINIO_URL="https://minio-api-${PROJECT_NAME}.2.rahtiapp.fi"
+N8N_BASE_URL="https://n8n-${PROJECT_NAME}.2.rahtiapp.fi"
 N8N_API_KEY=fetch-from-n8n-ui-and-add-here
 
 # ── Create the OpenShift secret ─────────────────────────────────────────────
@@ -60,6 +62,7 @@ cat > "$LOCAL_FILE" <<EOF
 # Namespace: $(oc project -q)
 MINIO_ROOT_USER='${MINIO_ROOT_USER}'
 MINIO_ROOT_PASSWORD='${MINIO_ROOT_PASSWORD}'
+MINIO_URL='${MINIO_URL}'
 POSTGRES_USER='${POSTGRES_USER}'
 POSTGRES_PASSWORD='${POSTGRES_PASSWORD}'
 POSTGRES_DB='${POSTGRES_DB}'
@@ -76,6 +79,7 @@ echo "Credentials saved to $LOCAL_FILE"
 echo ""
 echo "  MINIO_ROOT_USER      = ${MINIO_ROOT_USER}"
 echo "  MINIO_ROOT_PASSWORD  = ${MINIO_ROOT_PASSWORD}"
+echo "  MINIO_URL            = ${MINIO_URL}"
 echo "  POSTGRES_USER        = ${POSTGRES_USER}"
 echo "  POSTGRES_PASSWORD    = ${POSTGRES_PASSWORD}"
 echo "  POSTGRES_DB          = ${POSTGRES_DB}"

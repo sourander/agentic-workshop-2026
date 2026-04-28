@@ -58,7 +58,7 @@ Thus, you will need to fill in the following values for the credential:
 
 Then, press the Save button.
 
-### Step 6: Test with the Chat
+## Step 6: Test with the Chat
 
 !!! warning
 
@@ -73,7 +73,7 @@ Open a Chat like instructed in the image caption above. A good tester prompt for
 
 > "What is the capital of Finland? Answer with one word."
 
-### Step 7: Fix the Error
+## Step 7: Fix the Error
 
 There is an error pop-up in the lower right corner of the screen when you try to use the chat:
 
@@ -136,7 +136,7 @@ The `Replace` option is located in the dropdown menu that appears when you click
 
     If you have never seen anything like this, this is called a "system prompt". It is a message that is given to the AI Agent to instruct it how to behave. The LLM will predict what word comes next, and then repeat, and then repeat, and then repeat... until it ends up generating a token `EOS` (End of Sequence). Then it stops.
 
-### Step 8: Test Again
+## Step 8: Test Again
 
 ![alt text](images/03-n8n-reset-context.png)
 /// caption
@@ -147,7 +147,7 @@ You can reset the chat context by clicking the **Reset chat session** button ind
 2. Try the same prompt again (e.g. "What is the capital of Finland? Answer with one word.")
 3. The response should be printed with no errors.
 
-### Step 9: Inspect the Workflow
+## Step 9: Inspect the Workflow
 
 Now, it would be a good idea to inspect the Nodes that were run, and Nodes that were not run. The nodes that were run are:
 

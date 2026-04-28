@@ -66,6 +66,9 @@ create-n8n-users:
 create-minio-users:
     uv run scripts/create-minio-users.py
 
+make-minio-public:
+    uv run scripts/make-minio-public.py
+
 # Expose public routes (run AFTER claiming admin accounts)
 expose:
     PROJECT_NAME={{ project_name }} envsubst '$$PROJECT_NAME' < n8n/rahti/routes.yaml | oc apply -f -

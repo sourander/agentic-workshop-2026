@@ -199,13 +199,7 @@ https://mattermost-aika-agent-workshop.2.rahtiapp.fi/signup_user_complete/?id=ab
 
 ## Create MinIO users
 
-Start the MinIO port forward in one terminal:
-
-``` bash
-just port-forward-minio
-```
-
-Then create the users in another terminal:
+Simply run the following command:
 
 ``` bash
 just create-minio-users
@@ -226,6 +220,18 @@ The resulting schema looks like this:
 ]
 ```
 
+## Make all MinIO buckets public
+
+Simple run:
+
+``` bash
+just make-minio-public
+```
+
+!!! warning
+
+    The public and all it's buckets (and their contents) are public. Anyone in the world can access them.
+
 ## Workshop-day operations
 
 - Verify the public routes with `just status` before participants arrive.
@@ -239,8 +245,8 @@ The resulting schema looks like this:
     - n8n URL
     - Mattermost URL and invite link
     - participant account list from `.this-session-members.json`
-    - MinIO credentials
-    - workflow JSON exports used as rescue imports
+
+    Remember that you can print the URIs at any time with `just status`.
 
 ## Cleanup after the workshop
 
