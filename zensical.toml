@@ -57,7 +57,8 @@ nav = [
         "participant/01_phase.md",
         "participant/02_phase.md",
         "participant/03_phase.md",
-        "participant/04_phase.md"
+        "participant/04_phase.md",
+        "participant/99_next_steps.md",
     ]},
     {"45-min Workshop" = [
         "miniparticipant/00_before.md"
