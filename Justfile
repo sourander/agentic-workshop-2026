@@ -53,7 +53,7 @@ port-forward-mm:
     @echo "Open http://localhost:8065 and create the admin account"
     oc port-forward svc/mattermost 8065:8065
 
-# Port-forward MinIO Console to localhost:9001 (verify admin login before exposing routes)
+# Port-forward MinIO API to localhost:9000 for temporary local access
 port-forward-minio:
     @echo "Use local mc tool to e.g. add users and buckets"
     oc port-forward svc/minio 9000:9000
@@ -76,7 +76,6 @@ expose:
     @echo "Public URLs:"
     @echo "  n8n:            https://n8n-{{ project_name }}.2.rahtiapp.fi"
     @echo "  Mattermost:     https://mattermost-{{ project_name }}.2.rahtiapp.fi"
-    @echo "  MinIO API:      https://minio-api-{{ project_name }}.2.rahtiapp.fi"
     @echo "  MinIO Console:  https://minio-console-{{ project_name }}.2.rahtiapp.fi"
 
 

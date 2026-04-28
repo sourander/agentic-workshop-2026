@@ -107,5 +107,5 @@ At the end of this phase, you should have a note that contains the following inf
 
 ![alt text](images/01-notes-workshop-outcome.png)
 /// caption
-Notes contains the n8n, Mattermost and MinIO key information. I have also included the API url, even though we have not yet used it. It will be used for n8n integration: a workflow system uses API calls, it does not use the human-friendly console. The API url is `https://minio-api-aika-agent-workshop.2.rahtiapp.fi`.
+Notes contains the n8n, Mattermost and MinIO key information. At this stage, make sure you have saved the MinIO console URL together with your `minio_username` and `minio_password`.
 ///

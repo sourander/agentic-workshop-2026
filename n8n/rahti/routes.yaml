@@ -5,22 +5,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: minio-api
-spec:
-  host: minio-api-${PROJECT_NAME}.2.rahtiapp.fi
-  to:
-    kind: Service
-    name: minio
-  port:
-    targetPort: api
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect
-
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
   name: minio-console
 spec:
   host: minio-console-${PROJECT_NAME}.2.rahtiapp.fi

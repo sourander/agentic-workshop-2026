@@ -10,12 +10,12 @@ icon: lucide/log-in
 ## What you will receive
 
 - Public n8n URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi`
-- Username and password for your participant account: [Placeholder]
+    - ... and a personal invitation link
 - Mattermost workspace URL: `https://mattermost-aika-agent-workshop.2.rahtiapp.fi`
-- Mattermost invite link or support channel instructions: [Placeholder]
-- MinIO API URL: `https://minio-api-aika-agent-workshop.2.rahtiapp.fi`
+    - ... and a shared invitation link for the whole group
 - MinIO console URL: `https://minio-console-aika-agent-workshop.2.rahtiapp.fi`
-- MinIO credentials if the exercise requires file uploads: [Placeholder]
+- Minio API private URI: `http://minio:9000/`
+- MinIO credentials (username and password)
 
 The table below has defaults that are 99,9 % sure to be correct, but verify with the instructor. URLs might get changed for security or technical reasons.
 
@@ -23,7 +23,6 @@ The table below has defaults that are 99,9 % sure to be correct, but verify with
 | ------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | n8n           | [n8n-aika-agent-workshop.2.rahtiapp.fi](https://n8n-aika-agent-workshop.2.rahtiapp.fi)                     | The key site.                         |
 | Mattermost    | [mattermost-aika-agent-workshop.2.rahtiapp.fi](https://mattermost-aika-agent-workshop.2.rahtiapp.fi)       | Chat platform.                        |
-| MinIO API     | [minio-api-aika-agent-workshop.2.rahtiapp.fi](https://minio-api-aika-agent-workshop.2.rahtiapp.fi)         | For API calls.                        |
 | MinIO Console | [minio-console-aika-agent-workshop.2.rahtiapp.fi](https://minio-console-aika-agent-workshop.2.rahtiapp.fi) | For manual file uploads and browsing. |
 
 What the instructor will hand you are two things:

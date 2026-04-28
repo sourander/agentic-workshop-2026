@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 MEMBERS_FILE = Path(__file__).parent.parent / ".this-session-members.json"
 DOTENV_FILE = Path(__file__).parent.parent / ".workshop-secrets.env"
 MC_ALIAS = "workshop"
-DEFAULT_MINIO_URL = "http://localhost:9000"
+MINIO_URL = "http://127.0.0.1:9000"
 
 
 def run_mc(*args: str) -> None:
@@ -31,7 +31,6 @@ def main() -> None:
     load_dotenv(DOTENV_FILE)
     root_user = os.environ.get("MINIO_ROOT_USER")
     root_password = os.environ.get("MINIO_ROOT_PASSWORD")
-    minio_url = os.environ.get("MINIO_URL", DEFAULT_MINIO_URL)
 
     if not root_user or not root_password:
         print("Error: MINIO_ROOT_USER and MINIO_ROOT_PASSWORD are required.")
@@ -45,8 +44,8 @@ def main() -> None:
 
     members = json.loads(MEMBERS_FILE.read_text())
 
-    print(f"Setting up mc alias '{MC_ALIAS}' -> {minio_url}")
-    run_mc("alias", "set", MC_ALIAS, minio_url, root_user, root_password)
+    print(f"Setting up mc alias '{MC_ALIAS}' -> {MINIO_URL}")
+    run_mc("alias", "set", MC_ALIAS, MINIO_URL, root_user, root_password)
 
     bucket_count = 0
 

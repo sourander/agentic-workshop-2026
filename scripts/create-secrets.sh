@@ -41,8 +41,8 @@ POSTGRES_PASSWORD=$(openssl rand -base64 18 | tr -d '/+=')
 # Derived connection string
 MM_SQLSETTINGS_DATASOURCE="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@mattermost-db:5432/${POSTGRES_DB}?sslmode=disable&connect_timeout=10"
 
-# Public service URLs and placeholder API key (must be fetched from n8n UI after deployment)
-MINIO_URL="https://minio-api-${PROJECT_NAME}.2.rahtiapp.fi"
+# Local MinIO API URL for temporary port-forwarded access, plus public service URLs
+MINIO_URL="http://127.0.0.1:9000"
 N8N_BASE_URL="https://n8n-${PROJECT_NAME}.2.rahtiapp.fi"
 N8N_API_KEY=fetch-from-n8n-ui-and-add-here
 

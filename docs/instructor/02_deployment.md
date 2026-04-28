@@ -162,10 +162,11 @@ This prints the public URLs for:
 
 - n8n
 - Mattermost
-- MinIO API
-- MinIO Console
+- MinIO Console (API is local only and not exposed)
 
-## Create participant accounts
+## HAndle Users
+
+### 1: Create participant accounts
 
 Create an n8n API key from the n8n UI under Settings, then fill in `N8N_API_KEY` and `N8N_BASE_URL` in `.workshop-secrets.env`.
 
@@ -182,7 +183,7 @@ Example account naming:
 - `happy-dolphin`
 - `cosmic-oriole`
 
-## Recover or regenerate the Mattermost invite link
+### 2: Recover or regenerate the Mattermost invite link
 
 If you did not copy the invite link during the initial Mattermost setup:
 
@@ -197,9 +198,17 @@ It should look similar to:
 https://mattermost-aika-agent-workshop.2.rahtiapp.fi/signup_user_complete/?id=abd1234567890
 ```
 
-## Create MinIO users
+This should be shared with the participants.
 
-Simply run the following command:
+### 3: Create MinIO users
+
+The Minio API is availably only locally, so we need a temporary port-forward:
+
+```bash
+just port-forward-minio
+```
+
+Then run in another terminal:
 
 ``` bash
 just create-minio-users
@@ -220,33 +229,56 @@ The resulting schema looks like this:
 ]
 ```
 
-## Make all MinIO buckets public
+### 4: Make all MinIO buckets public
 
-Simple run:
+Having the port forward still active, simply run:
 
 ``` bash
 just make-minio-public
 ```
 
-!!! warning
-
-    The public and all it's buckets (and their contents) are public. Anyone in the world can access them.
+The buckets are public, but the API is still only accessible locally. This allows n8n to interact with MinIO without exposing it publicly.
 
 ## Workshop-day operations
 
 - Verify the public routes with `just status` before participants arrive.
 - Keep the admin credentials and invite links available in a private note.
-- Instruct participants to configure their n8n OpenAI credential with base URL `http://openai-proxy/v1` and any placeholder token value. The internal proxy replaces the Authorization header with the workshop token.
 - Share the n8n access details and participant credentials at the start of the session.
 
-??? info "Suggested instructor handoff bundle"
-    Keep the following items together for the session:
+??? info "Handoff bundle for 2+ hour workshop"
 
-    - n8n URL
-    - Mattermost URL and invite link
-    - participant account list from `.this-session-members.json`
+    Each student should receive this kind of handoff:
 
-    Remember that you can print the URIs at any time with `just status`.
+    Content copy-pasted from `.this-session-members.json` for each participant, containing:
+
+    ```json
+      {
+        "email": "sweet-raven@foobar.local",
+        "n8n_invitation_url": "https://n8n-aika-agent-workshop.2.rahtiapp.fi/signup?token=LONG-TOKEN-HERE",
+        "minio_username": "sweet-raven",
+        "minio_password": "Sweet-Raven07"
+    },
+    ```
+
+    URIs for the three key services:
+
+    * n8n: `https://n8n-aika-agent-workshop.2.rahtiapp.fi`
+    * Mattermost: `https://mattermost-aika-agent-workshop.2.rahtiapp.fi`
+    * MinIO Console: `https://minio-console-aika-agent-workshop.2.rahtiapp.fi`
+
+    And the shared Mattermost invite link:
+
+    ```
+    https://mattermost-aika-agent-workshop.2.rahtiapp.fi/signup_user_complete/?id=ID-HERE
+
+    ```
+
+??? info "Handoff bundle for <1 hour workshop"
+
+    The shorter workshop will completely skip the Minio and Mattermost exercises. Thus, the handoff bundle can be simplified to just the n8n invitation URL and the public n8n URI:
+
+    * n8n: `https://n8n-aika-agent-workshop.2.rahtiapp.fi`
+    * n8n invitation URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/signup?token=LONG-TOKEN-HERE`
 
 ## Cleanup after the workshop
 
