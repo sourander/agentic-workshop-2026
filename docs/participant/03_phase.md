@@ -132,6 +132,8 @@ The `Replace` option is located in the dropdown menu that appears when you click
     - Be proactive. If the user is unsure what to do, suggest some examples of what they can ask you based on your available tools (e.g., Talk about your tools and what you know about yourself).
     </output_format>
     </instructions>
+
+    
     ```
 
     If you have never seen anything like this, this is called a "system prompt". It is a message that is given to the AI Agent to instruct it how to behave. The LLM will predict what word comes next, and then repeat, and then repeat, and then repeat... until it ends up generating a token `EOS` (End of Sequence). Then it stops.
@@ -151,7 +153,7 @@ You can reset the chat context by clicking the **Reset chat session** button ind
 
 Now, it would be a good idea to inspect the Nodes that were run, and Nodes that were not run. The nodes that were run are:
 
-- [x] Exemple Chat
+- [x] Example Chat
 - [x] AI Agent
 - [x] OpenAI Chat Model
 - [x] Conversation Memory

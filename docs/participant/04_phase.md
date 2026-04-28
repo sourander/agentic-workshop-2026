@@ -29,7 +29,7 @@ In this documentation, we will use the example alias: `fit-dassie`. You should r
 
 ## Architecture
 
-High‑Level Architecture
+High‑Level Architecture. For more realistic flow, we will check the Logs panel later on.
 
 ```
 Mattermost (Channel Message)
@@ -55,11 +55,9 @@ Log in using:
 * Username: your minio_username (e.g. `fit-dassie`)
 * Password: your minio_password (e.g. `Fit-Dassie-42`)
 
-### Create a Bucket
+### Identify your Bucket
 
-Create a bucket named after your alias. This can be done using the `+ Create Bucket` in Minio Console's left side navigation. Note that the buckets are shared, so do not place any sensitive information in them. The bucket name must be unique across all participants, so use your alias to ensure that.
-
-* e.g. `fit-dassie`
+The bucket with your username (e.g. `happy-penguing`) has already been created for you. Find it. Note that the buckets are shared, so do not place any sensitive information in them.
 
 !!! warning
 
@@ -73,12 +71,18 @@ Create a bucket named after your alias. This can be done using the `+ Create Buc
 
 ### Upload TXT Files
 
-Create a few simple TXT files that you will want your LLM to be able to use as reference documents. For example:
+Let's imagine a use case where some information arrives in a non-JSON format. It can be mostly machine-readable, but not fully structured. Parsing this sort of content without LLM, using only rules and regexes, can be a nightmare. But LLMs can easily extract relevant information from such content if prompted correctly. Let's see how we can get this working.
+
+Below are two simple TXT files that you can use. You can also create your own TXT file if you want. Just make sure to keep it as unstructured TXT file. Files like Word (`.docx`) or PDF would require different handling, so we stick to simple TXT files for this workshop.
 
 * menu.txt
+    * ::material-file-link: download from [menu.txt](https://minio-console-aika-agent-workshop.2.rahtiapp.fi/b/fit-dassie/o/menu.txt)
 * projects.txt
+    * :material-file-link: download from [projects.txt](https://minio-console-aika-agent-workshop.2.rahtiapp.fi/b/fit-dassie/o/projects.txt)
 
-Let's imagine a use case where some information arrives in a non-JSON format. It can be mostly machine-readable, but not fully structured. Parsing this sort of content without LLM, using only rules and regexes, can be a nightmare. But LLMs can easily extract relevant information from such content if prompted correctly. Let's see how we can get this working.
+!!! tip
+
+    The instructor can share these files using the Mattermost platform. Edit the files as you want. Maybe you don't like Potato Soup, so change it to something else.
 
 ??? info "Example content of menu.txt"
 
@@ -110,18 +114,52 @@ Let's imagine a use case where some information arrives in a non-JSON format. It
 
 ??? info "Example content of projects.txt"
 
-    ```
-    Active Projects as of 2026/Q1
+    If the menu was a bit of a mess, this is a complete disaster. It is a mix of meeting notes, project descriptions, random thoughts, and even some to-dos. It is a nightmare to parse using traditional rules-based methods, but maybe LLM can invent data quality where there is none?
 
-    - Title: FIT Dassie
-      Description: A project to build a simple RAG‑like workflow using n8n, Mattermost, and MinIO.
-      Status: Active
-    - Title: FIT Capybara
-      Description: A project to explore agentic capabilities of LLMs using n8n and custom APIs.
-      Status: Planning
-    - Title: FIT Otter
-      Description: A project to create a knowledge graph from unstructured data using n8n and Neo4j.
-      Status: Completed
+    ```
+    Project Alpha
+    Client: Northern Council
+    Goal: Build a dashboard
+    - Status: ongoing
+    - Deadline maybe end of June?
+    Notes: some data still missing
+
+    Tuesday work
+    Project Beta
+    This one is internal
+    Mobile app rewrite
+    Started 2023
+    * currently paused *
+    Reason: resources moved elsewhere
+
+    WEDNESDAY
+    - Gamma Initiative
+    Customer is unsure what they want
+    Phase 1: research
+    Phase 2: ?
+    We had a meeting but no notes were saved
+
+    Project Delta:
+    CRM migration
+    Owner: Jani?
+    Owner changed at some point
+    - kickoff done
+    - data export failed first time
+    Final go-live planned but not confirmed
+
+    Random notes
+    remember to check Minio bucket permissions
+    Project Epsilon might belong here
+    AI-based recommendation engine
+    client said “like Netflix but for reports”
+
+    Friday
+    Delivery review:
+    Alpha needs more testing
+    Beta no longer priority
+    Someone mentioned Project Zeta but no idea what that is
+
+    END OF FILE
     ```
 
 ## Step 2: n8n Workflow

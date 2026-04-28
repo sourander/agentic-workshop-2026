@@ -164,7 +164,7 @@ This prints the public URLs for:
 - Mattermost
 - MinIO Console (API is local only and not exposed)
 
-## HAndle Users
+## Create Users
 
 ### 1: Create participant accounts
 

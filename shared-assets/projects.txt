@@ -1,0 +1,43 @@
+Project Alpha
+Client: Northern Council
+Goal: Build a dashboard
+- Status: ongoing
+- Deadline maybe end of June?
+Notes: some data still missing
+
+Tuesday work
+Project Beta
+This one is internal
+Mobile app rewrite
+Started 2023
+* currently paused *
+Reason: resources moved elsewhere
+
+WEDNESDAY
+- Gamma Initiative
+Customer is unsure what they want
+Phase 1: research
+Phase 2: ?
+We had a meeting but no notes were saved
+
+Project Delta:
+CRM migration
+Owner: Jani?
+Owner changed at some point
+- kickoff done
+- data export failed first time
+Final go-live planned but not confirmed
+
+Random notes
+remember to check Minio bucket permissions
+Project Epsilon might belong here
+AI-based recommendation engine
+client said “like Netflix but for reports”
+
+Friday
+Delivery review:
+Alpha needs more testing
+Beta no longer priority
+Someone mentioned Project Zeta but no idea what that is
+
+END OF FILE

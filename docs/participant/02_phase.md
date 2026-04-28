@@ -62,7 +62,7 @@ Note that the output contains 1 item with a key `current_time` and the value is 
 You can close the Code Node editor by pressing the `X` in the top right corner. You should now see your workflow consisting of the Manual Trigger and the Code node. You can press the `Execute Workflow` button to run the workflow. If all goes well, you should see the green checkbox indicators. Also, you can check the `Logs` pane – botton of the screen – and the `Executions` tab to see the details of each execution.
 ///
 
-### Step 3: Accessing JSON output
+## Step 4: Accessing JSON output
 
 Note that the outputted data was in the format of:
 
@@ -123,7 +123,7 @@ The expression has been pasted into the larger editor. Note that I have also for
 After closing the expression editor, you can run the workflow again and see the new field `days_to_christmas_26` with the value of... well, the actual days till Christmas Even 2026.
 ///
 
-### Step 4: Name the Workflow
+## Step 5: Name the Workflow
 
 You can rename the Workflow in the top-left corner by clicking the default title. I've named in to First Workflow Ever, but you can be more creative if you like.
 
@@ -132,7 +132,7 @@ You can rename the Workflow in the top-left corner by clicking the default title
 The Workflow has a new name now.
 ///
 
-### Step 5: Download the workflow JSON
+## Step 6: Download the workflow JSON
 
 It is good to know that you can Download (Export) and Import workflows as JSON files. This is useful for sharing workflows, creating backups, or moving workflows between different n8n instances.
 
