@@ -142,6 +142,13 @@ spec:
                   key: POSTGRES_DB
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
@@ -370,6 +377,13 @@ spec:
             # IMPORTANT: mount /home/node, not /home/node/.n8n
             - name: data
               mountPath: /home/node
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "2Gi"
+            limits:
+              cpu: "2000m"
+              memory: "4Gi"
           securityContext:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
@@ -457,7 +471,13 @@ spec:
               value: "false"
             - name: MM_SERVICESETTINGS_ENABLEPOSTUSERNAMEOVERRIDE
               value: "true"
-            - name: EnableOnlyAdminIntegrations
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
           volumeMounts:
             - name: data
               mountPath: /mattermost/data
