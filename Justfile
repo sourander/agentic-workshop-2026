@@ -69,6 +69,25 @@ create-minio-users:
 make-minio-public:
     uv run scripts/make-minio-public.py
 
+# Generate per-participant handout Markdown files and convert them to PDF
+# Requires pandoc in PATH (brew install pandoc && brew install --cask basictex)
+create-handouts:
+    #!/usr/bin/env bash
+    if ! command -v pandoc > /dev/null 2>&1; then
+        echo "Error: pandoc not found in PATH."
+        echo "Install with: brew install pandoc && brew install --cask basictex"
+        exit 1
+    fi
+    uv run scripts/create-handouts.py
+    today=$(date +%Y-%m-%d)
+    mkdir -p "handouts/${today}/pdf"
+    for f in "handouts/${today}"/*.md; do
+        pandoc "$f" -o "handouts/${today}/pdf/$(basename "${f%.md}").pdf"
+        echo "PDF: handouts/${today}/pdf/$(basename "${f%.md}").pdf"
+    done
+    echo ""
+    echo "Done. PDFs written to handouts/${today}/pdf/"
+
 # Expose public routes (run AFTER claiming admin accounts)
 expose:
     PROJECT_NAME={{ project_name }} envsubst '$$PROJECT_NAME' < n8n/rahti/routes.yaml | oc apply -f -

@@ -245,6 +245,21 @@ The buckets are public, but the API is still only accessible locally. This allow
 - Keep the admin credentials and invite links available in a private note.
 - Share the n8n access details and participant credentials at the start of the session.
 
+### Generate participant handouts
+
+Run the following command to generate one Markdown file per participant and convert each to PDF:
+
+``` bash
+just create-handouts
+```
+
+The script will prompt you to paste the Mattermost invite URL. After that it writes one `.md` file per participant to `handouts/<date>/` and converts them to `handouts/<date>/pdf/`.
+
+**Dependencies:** `pandoc` and `pdflatex` must be available in your `PATH`.
+
+- macOS: install pandoc with `brew install pandoc`
+- macOS: install BasicTeX (which provides `pdflatex`) from [https://tug.org/mactex/beginners.html](https://tug.org/mactex/beginners.html)
+
 ??? info "Handoff bundle for 2+ hour workshop"
 
     Each student should receive this kind of handoff:
