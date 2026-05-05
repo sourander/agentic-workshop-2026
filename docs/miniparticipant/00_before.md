@@ -4,22 +4,29 @@ icon: lucide/log-in
 
 # Before You Start
 
+This is a shortened version of the full workshop. It keeps only the n8n parts that fit into roughly 30 to 40 minutes:
+
+- **Phase 1**: Use n8n invite link, create password.
+- **Phase 2**: Use JSON to build a simply workflow to learn how n8n works.
+- **Phase 3**: Follow example to create a simple AI Agent Workflow.
+- **Next Steps**: Tips for future.
+
+!!! tip "What is skipped?"
+
+    Mattermost and MinIO are intentionally skipped in this mini track.
+
+## What you will receive
+
+The instructor should give you:
+
+- an email address, such as `happy-koala@foobar.local`
+- a personal n8n invitation URL
+
+You only need those two values for this guide. Note that the invitation URL is unique to you. Do not try to help another participant by forwarding your URL to them.
+
 !!! info
-    Participants should be able to use this guide in two ways: by following along with a live instructor demo or by completing the same steps independently at their own pace.
 
+    This mini guide assumes that the workshop environment already exists and that the instructor has already created participant invitations.
 
-This will contain a minified version of the 2 hrs Workshop, ignoring Minio and Mattermost integrations, keeping only the minimal First Workflow Ever and the First AI Agent practices. Thus, only n8n credentials need to be created using the invite URI.
-
-Also, the participant is not expected to click the complex workflow themselves, but copy-paste the JSON into the empty Workflow and simply execute and inspect. So, we will do:
-
-* Before You Start: How to activate the n8n account using invite URI. All complex stuff is dropped. Password should be memorable.
-* Phase 1: First Workflow Ever (to learn how to create a workflow, add nodes, connect them, execute and inspect)
-* Phase 2: First AI Agent Ever (copy-paste correct JSON, execute and inspect)
-* What Next: Finally, we will simply discuss what to do next: maybe try cloud n8n, connect your Gmail, etc, on your own time.
-
-Idea is that this can be done in 35-45 minutes.
-
-!!! info
-
-    This guide is at the moment Work in Progress. It will be updated after the 2hrs workshop is fully written.
+Continue to the next page to create your n8n account. Follow the instructor's directions. This 45-min Workshop will most likely be organized live.
 

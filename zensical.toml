@@ -61,7 +61,11 @@ nav = [
         "participant/99_next_steps.md",
     ]},
     {"45-min Workshop" = [
-        "miniparticipant/00_before.md"
+        "miniparticipant/00_before.md",
+        "miniparticipant/01_phase.md",
+        "miniparticipant/02_phase.md",
+        "miniparticipant/03_phase.md",
+        "miniparticipant/99_next_steps.md"
     ]}
 ]
 
