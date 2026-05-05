@@ -15,7 +15,7 @@ import requests
 from dotenv import load_dotenv
 import os
 
-TARGET_MEMBER_COUNT = 30
+TARGET_MEMBER_COUNT = 50
 EMAIL_DOMAIN = "foobar.local"
 OUTPUT_FILE = Path(__file__).parent.parent / ".this-session-members.json"
 DOTENV_FILE = Path(__file__).parent.parent / ".workshop-secrets.env"

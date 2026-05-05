@@ -71,14 +71,19 @@ make-minio-public:
 
 # Generate per-participant handout Markdown files and convert them to PDF
 # Requires pandoc in PATH (brew install pandoc && brew install --cask basictex)
-create-handouts:
+create-handouts mode='full':
     #!/usr/bin/env bash
+    set -e
     if ! command -v pandoc > /dev/null 2>&1; then
         echo "Error: pandoc not found in PATH."
         echo "Install with: brew install pandoc && brew install --cask basictex"
         exit 1
     fi
-    uv run scripts/create-handouts.py
+    if [ "{{ mode }}" = "full" ]; then
+        uv run scripts/create-handouts.py
+    else
+        uv run scripts/create-handouts.py "{{ mode }}"
+    fi
     today=$(date +%Y-%m-%d)
     mkdir -p "handouts/${today}/pdf"
     for f in "handouts/${today}"/*.md; do
