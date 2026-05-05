@@ -250,50 +250,22 @@ The buckets are public, but the API is still only accessible locally. This allow
 Run the following command to generate one Markdown file per participant and convert each to PDF:
 
 ``` bash
-just create-handouts
+just create-handouts [full|mini]
 ```
 
-The script will prompt you to paste the Mattermost invite URL. After that it writes one `.md` file per participant to `handouts/<date>/` and converts them to `handouts/<date>/pdf/`.
+The script will prompt you to paste the Mattermost invite URL. For mini workshop, you can simply type `foobar` there. After that it writes one `.md` file per participant to `handouts/<date>/` and converts them to `handouts/<date>/pdf/`. 
 
-**Dependencies:** `pandoc` and `pdflatex` must be available in your `PATH`.
+!!! tip "Mini workshop"
+    The `mini` argument creates a PDF that lacks the Mattermost and MinIO sections. Default is `full`.
 
-- macOS: install pandoc with `brew install pandoc`
-- macOS: install BasicTeX (which provides `pdflatex`) from [https://tug.org/mactex/beginners.html](https://tug.org/mactex/beginners.html)
+!!! warning "Dependencies"
 
-??? info "Handoff bundle for 2+ hour workshop"
 
-    Each student should receive this kind of handoff:
+    Binaries `pandoc` and `pdflatex` must be available in your `PATH`.
 
-    Content copy-pasted from `.this-session-members.json` for each participant, containing:
+    - macOS: install pandoc with `brew install pandoc`
+    - macOS: install BasicTeX (which provides `pdflatex`) from [https://tug.org/mactex/beginners.html](https://tug.org/mactex/beginners.html)
 
-    ```json
-      {
-        "email": "sweet-raven@foobar.local",
-        "n8n_invitation_url": "https://n8n-aika-agent-workshop.2.rahtiapp.fi/signup?token=LONG-TOKEN-HERE",
-        "minio_username": "sweet-raven",
-        "minio_password": "Sweet-Raven07"
-    },
-    ```
-
-    URIs for the three key services:
-
-    * n8n: `https://n8n-aika-agent-workshop.2.rahtiapp.fi`
-    * Mattermost: `https://mattermost-aika-agent-workshop.2.rahtiapp.fi`
-    * MinIO Console: `https://minio-console-aika-agent-workshop.2.rahtiapp.fi`
-
-    And the shared Mattermost invite link:
-
-    ```
-    https://mattermost-aika-agent-workshop.2.rahtiapp.fi/signup_user_complete/?id=ID-HERE
-
-    ```
-
-??? info "Handoff bundle for <1 hour workshop"
-
-    The shorter workshop will completely skip the Minio and Mattermost exercises. Thus, the handoff bundle can be simplified to just the n8n invitation URL and the public n8n URI:
-
-    * n8n: `https://n8n-aika-agent-workshop.2.rahtiapp.fi`
-    * n8n invitation URL: `https://n8n-aika-agent-workshop.2.rahtiapp.fi/signup?token=LONG-TOKEN-HERE`
 
 ## Cleanup after the workshop
 
