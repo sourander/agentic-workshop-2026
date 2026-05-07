@@ -11,6 +11,8 @@ This is a shortened version of the full workshop. It keeps only the n8n parts th
 - **Phase 3**: Follow example to create a simple AI Agent Workflow.
 - **Next Steps**: Tips for future.
 
+In case you accidentally close the window, simply navigate back to [n8n-aika-agent-workshop.2.rahtiapp.fi](https://n8n-aika-agent-workshop.2.rahtiapp.fi/).
+
 !!! tip "What is skipped?"
 
     Mattermost and MinIO are intentionally skipped in this mini track.
